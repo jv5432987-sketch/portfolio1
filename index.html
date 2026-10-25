@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jatin · Cybersecurity Portfolio</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0f17;
+      font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+      line-height: 1.5;
+      color: #e5e9f0;
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .portfolio {
+      max-width: 1050px;
+      width: 100%;
+      background: #131a26;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(66, 153, 225, 0.15);
+      backdrop-filter: blur(2px);
+      border: 1px solid #1f2a3a;
+    }
+
+    /* header / intro */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #263040;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero-left h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, #8bb9fe 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.35rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1e2b3c;
+      color: #8bb9fe;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      border: 1px solid #2d4055;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      color: #b0c4de;
+    }
+
+    .contact-info i {
+      color: #4f9cf7;
+      width: 1.3rem;
+      font-size: 1rem;
+      margin-right: 0.3rem;
+    }
+
+    .contact-info a {
+      color: #b0c4de;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: #8bb9fe;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.8rem;
+    }
+
+    .lang-tag {
+      background: #1e2b3c;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #b0c4de;
+      border: 1px solid #2d4055;
+    }
+
+    .lang-tag i {
+      color: #4f9cf7;
+      margin-right: 0.4rem;
+    }
+
+    /* section styling */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 1.5rem;
+      color: #f0f4fa;
+    }
+
+    .section-title i {
+      color: #3b82f6;
+      font-size: 1.6rem;
+      width: 2rem;
+    }
+
+    .section-title span {
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 0.3rem;
+    }
+
+    /* summary paragraph */
+    .summary-text {
+      background: #0f1621;
+      padding: 1.5rem 1.8rem;
+      border-radius: 1.5rem;
+      border-left: 5px solid #3b82f6;
+      font-size: 1.05rem;
+      color: #cfdbe9;
+      line-height: 1.7;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .summary-text strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      background: #0f1621;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #1f2e40;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-3px);
+    }
+
+    .skill-card h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #7e9bc0;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-card h4 i {
+      color: #4f9cf7;
+      font-size: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.6rem;
+    }
+
+    .skill-tag {
+      background: #1a2537;
+      color: #d1e0f5;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      border: 1px solid #2b3d55;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+
+    .skill-tag:hover {
+      background: #243b5a;
+      border-color: #3b82f6;
+      color: white;
+    }
+
+    /* projects */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .project-item {
+      background: #0f1621;
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.7rem;
+      border: 1px solid #1f2e40;
+      transition: border 0.2s, background 0.2s;
+    }
+
+    .project-item:hover {
+      border-color: #3b82f6;
+      background: #101b2b;
+    }
+
+    .project-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-header i {
+      color: #4f9cf7;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    .project-header h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .project-desc {
+      color: #b8cbdf;
+      font-size: 0.98rem;
+      margin-left: 2.8rem;
+      line-height: 1.6;
+    }
+
+    .project-desc strong {
+      color: #d4e6ff;
+      font-weight: 600;
+    }
+
+    /* certifications */
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: #0f1621;
+      border: 1px solid #1f2e40;
+      border-radius: 1.2rem;
+      padding: 1rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1 1 220px;
+      transition: border 0.2s;
+    }
+
+    .cert-card:hover {
+      border-color: #3b82f6;
+    }
+
+    .cert-card i {
+      color: #f9b84a;
+      font-size: 1.8rem;
+    }
+
+    .cert-card div {
+      font-weight: 500;
+      font-size: 0.98rem;
+      color: #d8e5f5;
+    }
+
+    .cert-card div span {
+      display: block;
+      font-size: 0.8rem;
+      color: #7f9bc2;
+      font-weight: 400;
+      margin-top: 0.2rem;
+    }
+
+    /* education & extra */
+    .edu-extra-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .edu-item, .extra-item {
+      background: #0f1621;
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.7rem;
+      border: 1px solid #1f2e40;
+    }
+
+    .edu-item h3, .extra-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .edu-item h3 i, .extra-item h3 i {
+      color: #4f9cf7;
+      font-size: 1.2rem;
+    }
+
+    .edu-item p, .extra-item p {
+      color: #b8cbdf;
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-item .institute {
+      color: #7f9bc2;
+      font-size: 0.9rem;
+    }
+
+    .strength-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .strength-list li {
+      background: #1a2537;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: 1px solid #2b3d55;
+      color: #d1e0f5;
+    }
+
+    .strength-list i {
+      color: #4f9cf7;
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    /* footer / small */
+    .footer-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1f2a3a;
+      font-size: 0.85rem;
+      color: #5f7a9c;
+    }
+
+    .footer-note i {
+      color: #3b82f6;
+      margin: 0 0.2rem;
+    }
+
+    /* responsive */
+    @media (max-width: 750px) {
+      .portfolio {
+        padding: 1.8rem 1.3rem;
+      }
+      .hero-left h1 {
+        font-size: 2.2rem;
+      }
+      .hero-right {
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .edu-extra-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .project-desc {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="portfolio">
+    <!-- HEADER / HERO -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="badge"><i class="fas fa-shield-haltered" style="margin-right: 6px;"></i>Entry-Level Cybersecurity</div>
+        <h1>Jatin</h1>
+        <div class="contact-info">
+          <span><i class="fas fa-map-pin"></i> Delhi, India</span>
+          <span><i class="fas fa-phone-alt"></i> <a href="tel:+918851427535">+91 8851427535</a></span>
+          <span><i class="fas fa-envelope"></i> <a href="mailto:jv5432987@gmail.com">jv5432987@gmail.com</a></span>
+          <span><i class="fab fa-github"></i> <a href="#" target="_blank">github.com/jatin</a></span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="lang-tag"><i class="fas fa-globe"></i> Hindi · English · German (A1)</div>
+        <div class="lang-tag"><i class="fas fa-chess"></i> Chess & strategic problem-solving</div>
+      </div>
+    </div>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section>
+      <div class="section-title"><i class="fas fa-user-secret"></i><span>Summary</span></div>
+      <div class="summary-text">
+        <strong>Cybersecurity student</strong> pursuing a Diploma in Cyber Security & Ethical Hacking; completed all Hack The Box Fundamentals modules. Hands-on with Linux, Nmap, Wireshark, Burp Suite, and Hydra. Strong interest in <strong>ethical hacking and firewall security</strong>. Quick learner who works through problems until they are solved correctly — eager to bring this mindset to a junior security role.
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS (reorganised) -->
+    <section>
+      <div class="section-title"><i class="fas fa-code"></i><span>Technical Skills</span></div>
+      <div class="skills-grid">
+        <!-- Security Concepts -->
+        <div class="skill-card">
+          <h4><i class="fas fa-lock"></i> Security Concepts</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Ethical Hacking</span>
+            <span class="skill-tag">Enumeration</span>
+            <span class="skill-tag">Firewall Security</span>
+            <span class="skill-tag">OSINT</span>
+          </div>
+        </div>
+        <!-- Security Tools -->
+        <div class="skill-card">
+          <h4><i class="fas fa-terminal"></i> Security Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Nmap</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Burp Suite</span>
+            <span class="skill-tag">Hydra</span>
+            <span class="skill-tag">Wifite</span>
+            <span class="skill-tag">Sherlock</span>
+            <span class="skill-tag">Kali Linux</span>
+          </div>
+        </div>
+        <!-- Networking -->
+        <div class="skill-card">
+          <h4><i class="fas fa-network-wired"></i> Networking</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">TCP/IP</span>
+            <span class="skill-tag">Basic Network Security</span>
+            <span class="skill-tag">Cisco Networking Basics</span>
+          </div>
+        </div>
+        <!-- Programming & OS -->
+        <div class="skill-card">
+          <h4><i class="fas fa-code-branch"></i> Programming & OS</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Basic)</span>
+            <span class="skill-tag">Linux (Intermediate)</span>
+            <span class="skill-tag">Bash</span>
+          </div>
+        </div>
+        <!-- Other Tools -->
+        <div class="skill-card">
+          <h4><i class="fas fa-robot"></i> Other Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">HackerGPT</span>
+            <span class="skill-tag">DeepHat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & HANDS-ON EXPERIENCE -->
+    <section>
+      <div class="section-title"><i class="fas fa-flask"></i><span>Projects & Hands‑On</span></div>
+      <div class="project-list">
+        <!-- HTB -->
+        <div class="project-item">
+          <div class="project-header">
+            <i class="fas fa-cube"></i>
+            <h3>Hack The Box – Fundamentals</h3>
+          </div>
+          <div class="project-desc">
+            Successfully completed <strong>all HTB Fundamentals modules</strong>. Practiced Linux command-line navigation, file system management, and basic enumeration techniques against simulated targets.
+          </div>
+        </div>
+        <!-- Python Chatbot -->
+        <div class="project-item">
+          <div class="project-header">
+            <i class="fab fa-python"></i>
+            <h3>Python Chatbot & Calculator</h3>
+          </div>
+          <div class="project-desc">
+            Developed a functional <strong>chatbot and calculator in Python</strong>, applying core programming concepts such as functions, loops, and user input handling.
+          </div>
+        </div>
+        <!-- Security tools practice -->
+        <div class="project-item">
+          <div class="project-header">
+            <i class="fas fa-radar"></i>
+            <h3>Security Tools Practice</h3>
+          </div>
+          <div class="project-desc">
+            Actively use <strong>Nmap</strong> for network scanning and <strong>Wireshark</strong> for packet analysis in a Kali Linux environment. Independently research and test new open-source security tools from GitHub to expand practical knowledge.
+          </div>
+        </div>
+        <!-- Linux Administration -->
+        <div class="project-item">
+          <div class="project-header">
+            <i class="fab fa-linux"></i>
+            <h3>Linux Administration Practice</h3>
+          </div>
+          <div class="project-desc">
+            Proficient in terminal navigation, file management, permissions, and basic administration tasks on Linux systems.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section>
+      <div class="section-title"><i class="fas fa-certificate"></i><span>Certifications</span></div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <i class="fas fa-award"></i>
+          <div>Hack The Box – Fundamentals <span>Completion</span></div>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-shield-alt"></i>
+          <div>Cisco – Intro to Cybersecurity <span>Networking Academy</span></div>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-ethernet"></i>
+          <div>Cisco – Networking Basics <span>Networking Academy</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & ADDITIONAL -->
+    <div class="edu-extra-wrapper">
+      <!-- Education -->
+      <div class="edu-item">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <p><strong>Diploma in Cyber Security & Ethical Hacking</strong> <span class="institute">(In Progress)</span></p>
+        <p class="institute" style="margin-top: 0.3rem;">[Name of Institution]</p>
+        <p style="margin-top: 0.8rem;"><strong>Class 12</strong> – Completed</p>
+      </div>
+
+      <!-- Additional info / Strengths -->
+      <div class="extra-item">
+        <h3><i class="fas fa-star"></i> Strengths & Interests</h3>
+        <ul class="strength-list">
+          <li><i class="fas fa-check-circle"></i> Problem solving</li>
+          <li><i class="fas fa-check-circle"></i> Quick learner</li>
+          <li><i class="fas fa-check-circle"></i> Confidence</li>
+          <li><i class="fas fa-check-circle"></i> Positive attitude</li>
+          <li><i class="fas fa-chess"></i> Chess</li>
+          <li><i class="fas fa-fire"></i> Firewall security</li>
+          <li><i class="fas fa-user-secret"></i> Ethical hacking</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><i class="fas fa-language" style="color:#4f9cf7; width:1.2rem;"></i> German (A1) – in progress</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-note">
+      <i class="fas fa-shield"></i> Jatin · Cybersecurity Portfolio · Built with hands-on practice and curiosity <i class="fas fa-heart" style="color:#3b82f6;"></i>
+    </div>
+  </div>
+</body>
+</html>
